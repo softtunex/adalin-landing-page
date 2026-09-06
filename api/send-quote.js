@@ -1,10 +1,9 @@
-// TEMPORARY: reverted 2026-09-06, Resend says adalintech.com is not verified
-// yet despite DNS records being in place. Restore both recipients and switch
-// FROM_ADDRESS to no-reply@adalintech.com once resend.com/domains actually
-// shows it Verified, not just "records added."
-const NOTIFY_RECIPIENTS = ['olatunji.buari@adalintech.com'];
+const NOTIFY_RECIPIENTS = ['olatunji.buari@adalintech.com', 'buariolatunji@gmail.com'];
 
-const FROM_ADDRESS = 'Adalin Tech Website <onboarding@resend.dev>';
+// Sent via the "adalin-mail" API key, on the Resend account that already
+// has adalintech.com verified (a separate account owns this domain there,
+// not the one this project started with).
+const FROM_ADDRESS = 'Adalin Tech Website <no-reply@adalintech.com>';
 
 function escapeHtml(value) {
   return String(value ?? '')
