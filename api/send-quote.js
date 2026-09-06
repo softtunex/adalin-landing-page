@@ -1,8 +1,10 @@
-const NOTIFY_RECIPIENTS = ['olatunji.buari@adalintech.com', 'buariolatunji@gmail.com'];
+// TEMPORARY: Resend's sandbox sender (onboarding@resend.dev) can only deliver
+// to the Resend account's own verified email. buariolatunji@gmail.com is
+// dropped from this list until adalintechnologies.com is verified as a
+// sending domain in Resend, at which point restore it and switch
+// FROM_ADDRESS below to an address on that domain.
+const NOTIFY_RECIPIENTS = ['olatunji.buari@adalintech.com'];
 
-// Uses Resend's sandbox sender so it works without domain verification.
-// Once adalintech.com is a verified sending domain in Resend, switch this
-// to an address on that domain (e.g. no-reply@adalintech.com).
 const FROM_ADDRESS = 'Adalin Tech Website <onboarding@resend.dev>';
 
 function escapeHtml(value) {
