@@ -60,7 +60,7 @@ export default async function handler(req, res) {
       title: `${post.title} | Adalin Tech`,
       description: post.description,
       canonical: `https://adalintechnologies.com/blog/${post.slug}`,
-      image: post.image || undefined,
+      image: post.image ? `https://adalintechnologies.com${post.image}` : undefined,
       bodyContent: body,
     })
   );
