@@ -31,6 +31,10 @@ export default async function handler(req, res) {
         .join('')}</div>`
     : '';
 
+  const featuredImage = post.image
+    ? `<img src="${escapeHtml(post.image)}" alt="" style="width:100%; border-radius:var(--radius); margin:28px 0; display:block;" />`
+    : '';
+
   const body = `
     <section class="section-pad" id="top">
       <div class="wrap" style="max-width:720px;">
@@ -40,6 +44,7 @@ export default async function handler(req, res) {
           <p style="color:var(--gray-dim); font-size:14px;">${escapeHtml(post.date)}</p>
           ${tags}
         </div>
+        ${featuredImage}
         <article class="blog-body">
           ${post.html}
         </article>
@@ -55,6 +60,7 @@ export default async function handler(req, res) {
       title: `${post.title} | Adalin Tech`,
       description: post.description,
       canonical: `https://adalintechnologies.com/blog/${post.slug}`,
+      image: post.image || undefined,
       bodyContent: body,
     })
   );

@@ -4,6 +4,7 @@ slug: does-your-business-need-workflow-automation
 date: 2026-09-07
 description: Five signs a repetitive process is costing your business more than it should, and what to actually do about it.
 tags: automation, workflow
+image: /assets/image/blog/does-your-business-need-workflow-automation.png
 ---
 
 Most businesses don't decide to automate something. They just keep doing the same manual task every week until it quietly becomes the thing nobody wants to do.

@@ -9,14 +9,17 @@ export default async function handler(req, res) {
         .map(
           (p) => `
           <a class="blog-card" href="/blog/${escapeHtml(p.slug)}">
-            <span class="blog-card-date">${escapeHtml(p.date)}</span>
-            <h3>${escapeHtml(p.title)}</h3>
-            <p>${escapeHtml(p.description)}</p>
-            <span class="blog-card-link">Read more
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <path d="M5 12h14M13 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round" />
-              </svg>
-            </span>
+            ${p.image ? `<img class="blog-card-image" src="${escapeHtml(p.image)}" alt="" />` : ''}
+            <div class="blog-card-body">
+              <span class="blog-card-date">${escapeHtml(p.date)}</span>
+              <h3>${escapeHtml(p.title)}</h3>
+              <p>${escapeHtml(p.description)}</p>
+              <span class="blog-card-link">Read more
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M5 12h14M13 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+              </span>
+            </div>
           </a>`
         )
         .join('')
