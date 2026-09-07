@@ -28,6 +28,7 @@
   });
 
   const qForm = document.getElementById('quoteForm');
+  if (qForm) {
   const qSuccess = document.getElementById('quoteSuccess');
   const qError = document.getElementById('quoteError');
   const qSubmitBtn = qForm.querySelector('button[type="submit"]');
@@ -74,4 +75,5 @@
       qError.style.display = 'block';
     }
   });
+  }
 })();

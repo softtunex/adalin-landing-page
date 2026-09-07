@@ -203,6 +203,31 @@
   .social-row a:hover{color:var(--white); border-color:#cfc9bd; transform:translateY(-3px);}
   .social-row svg{width:15px; height:15px;}
 
+  /* ---- blog ---- */
+  .blog-grid{display:grid; grid-template-columns:1fr 1fr; gap:22px;}
+  .blog-card{
+    display:block; background:var(--surface); border:1px solid var(--border); border-radius:var(--radius);
+    padding:28px; text-decoration:none; color:inherit;
+    transition:transform .3s var(--ease), border-color .3s ease, box-shadow .3s ease;
+  }
+  .blog-card:hover{transform:translateY(-4px); border-color:#d8d3c8; box-shadow:0 16px 34px rgba(20,20,20,0.06);}
+  .blog-card-date{font-family:var(--font-head); font-size:11.5px; font-weight:700; letter-spacing:0.04em; text-transform:uppercase; color:var(--amber);}
+  .blog-card h3{font-size:18px; margin:10px 0 8px;}
+  .blog-card p{color:var(--gray); font-size:14px; margin-bottom:14px;}
+  .blog-card-link{display:inline-flex; align-items:center; gap:6px; font-weight:700; font-size:13.5px; color:var(--amber); font-family:var(--font-head);}
+  .blog-card-link svg{width:14px; height:14px; transition:transform .2s ease;}
+  .blog-card:hover .blog-card-link svg{transform:translateX(3px);}
+
+  .blog-body{color:var(--white); font-size:16px; line-height:1.75; margin-top:32px;}
+  .blog-body h2{font-size:1.4rem; margin:36px 0 14px;}
+  .blog-body h3{font-size:1.15rem; margin:28px 0 12px;}
+  .blog-body p{margin-bottom:18px; color:var(--gray);}
+  .blog-body a{color:var(--amber); font-weight:600;}
+  .blog-body ul, .blog-body ol{margin:0 0 18px; padding-left:22px; color:var(--gray);}
+  .blog-body li{margin-bottom:8px;}
+  .blog-body strong{color:var(--white); font-weight:700;}
+  .blog-body code{background:var(--surface-2); padding:2px 6px; border-radius:4px; font-size:0.9em;}
+
   /* ---- responsive ---- */
   @media (max-width:980px){
     .nav-links{display:none;}
@@ -214,6 +239,7 @@
     .pick-grid{grid-template-columns:1fr 1fr;}
     .form-grid{grid-template-columns:1fr;}
     .form-field.full{grid-column:span 1;}
+    .blog-grid{grid-template-columns:1fr;}
   }
   @media (max-width:600px){
     .wrap{padding:0 20px;}

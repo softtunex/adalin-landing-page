@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="robots" content="noindex, nofollow" />
+    <title>Write a Post | Adalin Tech</title>
+    <link rel="icon" type="image/png" href="assets/image/favicon.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <style>
+      .admin-wrap { max-width: 720px; margin: 0 auto; padding: 80px 24px 100px; }
+      .admin-wrap h1 { font-size: 1.8rem; margin-bottom: 8px; }
+      .admin-wrap .sub { color: var(--gray); margin-bottom: 36px; }
+      .admin-field { margin-bottom: 18px; }
+      .admin-field label { display: block; font-size: 13px; color: var(--gray); margin-bottom: 7px; font-weight: 600; }
+      .admin-field input,
+      .admin-field textarea {
+        width: 100%; background: var(--surface-2); border: 1.5px solid var(--border); border-radius: 12px;
+        padding: 13px 16px; color: var(--white); font-size: 14px; font-family: var(--font-body); resize: vertical;
+      }
+      .admin-field textarea { min-height: 320px; font-family: 'SFMono-Regular', Consolas, monospace; font-size: 13.5px; line-height: 1.6; }
+      .admin-field input:focus, .admin-field textarea:focus { outline: none; border-color: var(--amber); }
+      .admin-msg { display: none; margin-top: 20px; padding: 16px 18px; border-radius: 14px; font-size: 14px; font-weight: 600; }
+      .admin-msg.success { background: var(--amber-soft); color: #B5480A; }
+      .admin-msg.error { background: rgba(220,38,38,0.08); color: #B91C1C; }
+    </style>
+  </head>
+  <body style="background: var(--bg);">
+    <div class="admin-wrap">
+      <h1>Write a Post</h1>
+      <p class="sub">Publishes straight to the live blog. Takes about a minute to go live after submitting.</p>
+
+      <form id="postForm">
+        <div class="admin-field">
+          <label for="pPassword">Password</label>
+          <input id="pPassword" type="password" required autocomplete="current-password" />
+        </div>
+        <div class="admin-field">
+          <label for="pTitle">Title</label>
+          <input id="pTitle" type="text" required placeholder="How to Know If Your Business Needs X" />
+        </div>
+        <div class="admin-field">
+          <label for="pDescription">Description (for search results and the blog listing)</label>
+          <input id="pDescription" type="text" required placeholder="One or two sentences summarizing the post" />
+        </div>
+        <div class="admin-field">
+          <label for="pTags">Tags (comma-separated, optional)</label>
+          <input id="pTags" type="text" placeholder="automation, workflow" />
+        </div>
+        <div class="admin-field">
+          <label for="pBody">Body (Markdown)</label>
+          <textarea id="pBody" required placeholder="## A heading&#10;&#10;Regular paragraph text. **Bold** and _italic_ work, and so do [links](/#quote)."></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary btn-block">Publish Post</button>
+      </form>
+      <div class="admin-msg success" id="msgSuccess"></div>
+      <div class="admin-msg error" id="msgError"></div>
+    </div>
+
+    <script>
+      const form = document.getElementById('postForm');
+      const msgSuccess = document.getElementById('msgSuccess');
+      const msgError = document.getElementById('msgError');
+      const submitBtn = form.querySelector('button[type="submit"]');
+      const submitLabel = submitBtn.textContent;
+
+      form.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        msgSuccess.style.display = 'none';
+        msgError.style.display = 'none';
+
+        const payload = {
+          password: document.getElementById('pPassword').value,
+          title: document.getElementById('pTitle').value,
+          description: document.getElementById('pDescription').value,
+          tags: document.getElementById('pTags').value,
+          body: document.getElementById('pBody').value,
+        };
+
+        submitBtn.disabled = true;
+        submitBtn.textContent = 'Publishing...';
+
+        try {
+          const res = await fetch('/api/blog-create', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(payload),
+          });
+          const result = await res.json();
+
+          if (!res.ok || !result.success) throw new Error(result.error || 'Failed to publish');
+
+          submitBtn.textContent = 'Published!';
+          msgSuccess.textContent = 'Live in about a minute at /blog/' + result.slug;
+          msgSuccess.style.display = 'block';
+          form.reset();
+          setTimeout(() => {
+            submitBtn.disabled = false;
+            submitBtn.textContent = submitLabel;
+          }, 2500);
+        } catch (err) {
+          submitBtn.disabled = false;
+          submitBtn.textContent = submitLabel;
+          msgError.textContent = err.message || 'Something went wrong. Try again.';
+          msgError.style.display = 'block';
+        }
+      });
+    </script>
+  </body>
+</html>

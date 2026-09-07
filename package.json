@@ -1,5 +1,8 @@
 {
   "name": "adalin-tech-landing-page",
   "private": true,
-  "type": "module"
+  "type": "module",
+  "dependencies": {
+    "marked": "^13.0.0"
+  }
 }
