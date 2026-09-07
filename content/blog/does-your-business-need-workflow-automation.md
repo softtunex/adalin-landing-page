@@ -33,6 +33,6 @@ If that thought has crossed your mind more than once about the same task, it usu
 
 ## What to actually do about it
 
-Not every repetitive task needs a custom-built system. Sometimes it's a small n8n or Make workflow that runs in the background. Sometimes it's worth building into custom software if the process is central to how the business runs. The right starting point is just mapping out what the task actually involves, then deciding what level of automation actually fits.
+Not every repetitive task needs a custom-built system. Sometimes it's a small **n8n** or **Make** workflow that runs in the background. Sometimes it's worth building into custom software if the process is central to how the business runs. The right starting point is just mapping out what the task actually involves, then deciding what level of automation actually fits.
 
 That's what a discovery call is for. [Get a free project estimate](/#quote) and we'll tell you honestly whether automation is worth it for your specific case, not just sell you on it because that's what we do.
