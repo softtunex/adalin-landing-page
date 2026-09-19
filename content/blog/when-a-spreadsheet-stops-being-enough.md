@@ -4,6 +4,7 @@ slug: when-a-spreadsheet-stops-being-enough
 date: 2026-09-19
 description: Spreadsheets are free until the day they aren't. Here's how to tell your business has actually outgrown one.
 tags: software, small business
+image: /assets/image/social/spreadsheet-editing-collision.png
 ---
 
 Almost every business starts the same way: a spreadsheet for orders, another for stock, maybe a notebook for who's owed what. It works, until one day it doesn't, and usually nobody notices the exact moment it stopped.
