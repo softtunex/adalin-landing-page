@@ -55,11 +55,22 @@ export default async function handler(req, res) {
     const data = await resendRes.json();
 
     if (!resendRes.ok) {
+      // Resend rejected the send (rate limit, etc). Log the full lead so it
+      // isn't lost outright, this is the only durable record if the visitor
+      // doesn't retry or email directly.
+      console.error('send-quote: Resend rejected the request', {
+        resendError: data,
+        lead: { name, email, phone, notes, service },
+      });
       return res.status(502).json({ success: false, error: data.message || 'Failed to send email' });
     }
 
     return res.status(200).json({ success: true });
   } catch (err) {
+    console.error('send-quote: unexpected failure', {
+      message: err?.message,
+      lead: { name, email, phone, notes, service },
+    });
     return res.status(500).json({ success: false, error: 'Server error' });
   }
 }
