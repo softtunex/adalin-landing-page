@@ -32,7 +32,7 @@ export default async function handler(req, res) {
     : '';
 
   const featuredImage = post.image
-    ? `<img src="${escapeHtml(post.image)}" alt="" style="width:100%; border-radius:var(--radius); margin:28px 0; display:block;" />`
+    ? `<img src="${escapeHtml(post.image)}" alt="${escapeHtml(post.imageAlt)}" style="width:100%; border-radius:var(--radius); margin:28px 0; display:block;" />`
     : '';
 
   const body = `
