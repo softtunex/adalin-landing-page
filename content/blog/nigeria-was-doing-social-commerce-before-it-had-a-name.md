@@ -4,6 +4,8 @@ slug: nigeria-was-doing-social-commerce-before-it-had-a-name
 date: 2026-10-02
 description: A global shipping company recently "discovered" that Nigerians are unusually good at buying and selling on social media, and the real story behind that is older and better than the headline.
 tags: small business, history, social commerce
+image: /assets/image/blog/nigeria-social-commerce.png
+imageAlt: Split image contrasting a Yoruba woman collecting ajo contributions into a clay pot at an open-air market with a modern Lagos shop owner checking orders on her phone at the counter
 ---
 
 A German logistics company ran a survey of 29,000 online shoppers across 29 countries last year and thought it had found something new. Nigerians buy things through Facebook at a rate of 86%, against a global average of 63%. On Instagram it's 64% versus 48% everywhere else. DHL wrote this up as a trend.
