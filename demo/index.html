@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Live Demo | Adalin Tech</title>
+  <meta name="description" content="Try the Business Operations System Adalin Tech builds, orders, customers, inventory, staff and payments, with a guest login and sample data." />
+  <meta name="robots" content="noindex, follow" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;700;800&family=Manrope:wght@400;500;600;700&family=JetBrains+Mono:wght@500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/demo/style.css" />
+</head>
+<body>
+
+  <div id="gate">
+    <div class="gate-card">
+      <div class="gate-logo">E</div>
+      <h1 id="company-name">Everline</h1>
+      <p id="company-tagline">Demo workspace</p>
+      <div class="gate-note">This is a live demo with sample data. Nothing here is a real business, customer or transaction.</div>
+      <button class="btn" id="enter-demo">Continue as guest</button>
+      <p style="font-size:12px;color:var(--ink-faint);">No sign-up. No real data. This is what Adalin Tech's Business Operations System looks like once it's built for you.</p>
+    </div>
+  </div>
+
+  <div id="app">
+    <aside class="sidebar">
+      <div class="brand">
+        <div class="mark">E</div>
+        <div class="name">Everline</div>
+      </div>
+      <button class="nav-item" data-view="dashboard" data-nav="dashboard">Dashboard</button>
+      <button class="nav-item" data-view="orders" data-nav="orders">Orders &amp; Bookings</button>
+      <button class="nav-item" data-view="customers" data-nav="customers">Customers</button>
+      <button class="nav-item" data-view="inventory" data-nav="inventory">Inventory</button>
+      <button class="nav-item" data-view="staff" data-nav="staff">Staff &amp; Roles</button>
+      <button class="nav-item" data-view="payments" data-nav="payments">Payments</button>
+      <button class="nav-item" data-view="reports" data-nav="reports">Reports</button>
+      <div class="sidebar-foot">
+        Sample data, resets on reload.<br />
+        <a href="/#quote">Get this for your business &rarr;</a>
+      </div>
+    </aside>
+
+    <main class="main">
+      <div class="topbar">
+        <div>
+          <h2 id="view-title">Dashboard</h2>
+          <div class="sub" id="view-sub"></div>
+        </div>
+        <a href="/#quote" class="btn">Get a free quote</a>
+      </div>
+      <div class="content" id="content"></div>
+    </main>
+  </div>
+
+  <div id="modal-backdrop">
+    <form class="modal" id="order-form">
+      <h3>New order</h3>
+      <label>Customer name<input name="customer" required placeholder="e.g. Grace Okon" /></label>
+      <label>What they ordered<input name="item" required placeholder="e.g. Standard booking" /></label>
+      <label>Total (₦)<input name="total" type="number" min="0" required placeholder="e.g. 85000" /></label>
+      <div class="modal-actions">
+        <button type="button" class="btn-ghost" id="order-cancel">Cancel</button>
+        <button type="submit" class="btn">Add order</button>
+      </div>
+    </form>
+  </div>
+
+  <script type="module" src="/demo/app.js"></script>
+</body>
+</html>
