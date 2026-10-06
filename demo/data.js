@@ -48,3 +48,6 @@ export const ledger = [
   { id: 6, date: '2026-10-02', desc: 'Payment, OB-103', type: 'In', amount: 48000 },
   { id: 7, date: '2026-10-01', desc: 'Utility bill', type: 'Out', amount: -38000 },
 ];
+
+// Last 8 weeks, for the dashboard trend line. Fictional.
+export const revenueTrend = [312000, 298000, 356000, 341000, 389000, 402000, 378000, 431000];
