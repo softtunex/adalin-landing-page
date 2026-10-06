@@ -83,11 +83,11 @@ function renderDashboard() {
   return `
     <div class="stat-grid">
       <div class="stat">
-        <div class="stat-top"><div class="stat-icon accent">${icons.wallet}</div><div class="stat-trend up">${icons.up}+12%</div></div>
+        <div class="stat-top"><div class="stat-icon">${icons.wallet}</div><div class="stat-trend up">${icons.up}+12%</div></div>
         <div class="val">${fmt(totalRevenue)}</div><div class="label">Collected this month</div>
       </div>
       <div class="stat">
-        <div class="stat-top"><div class="stat-icon accent">${icons.clipboard}</div></div>
+        <div class="stat-top"><div class="stat-icon">${icons.clipboard}</div></div>
         <div class="val">${orders.length}</div><div class="label">Total orders</div>
       </div>
       <div class="stat">
@@ -185,8 +185,8 @@ function renderReports() {
     <div class="stat-grid">
       <div class="stat"><div class="stat-top"><div class="stat-icon good">${icons.wallet}</div></div><div class="val">${fmt(totalIn)}</div><div class="label">Total in, this period</div></div>
       <div class="stat"><div class="stat-top"><div class="stat-icon warn">${icons.wallet}</div></div><div class="val">${fmt(Math.abs(totalOut))}</div><div class="label">Total out, this period</div></div>
-      <div class="stat"><div class="stat-top"><div class="stat-icon accent">${icons.clipboard}</div></div><div class="val">${fmt(avgOrder)}</div><div class="label">Average order value</div></div>
-      <div class="stat"><div class="stat-top"><div class="stat-icon accent">${icons.spark}</div></div><div class="val">${customers.length}</div><div class="label">Active customers</div></div>
+      <div class="stat"><div class="stat-top"><div class="stat-icon">${icons.clipboard}</div></div><div class="val">${fmt(avgOrder)}</div><div class="label">Average order value</div></div>
+      <div class="stat"><div class="stat-top"><div class="stat-icon">${icons.spark}</div></div><div class="val">${customers.length}</div><div class="label">Active customers</div></div>
     </div>
     <div class="banner">${icons.up}In the real system, every number on this page is live, it updates the moment an order or payment is logged. Nothing is typed twice.</div>
   `;
