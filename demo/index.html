@@ -4,111 +4,56 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Live Demo | Adalin Tech</title>
-  <meta name="description" content="Try the Business Operations System Adalin Tech builds, orders, customers, inventory, staff and payments, with a guest login and sample data." />
+  <meta name="description" content="A real walkthrough of the booking and deposit-payment system Adalin Tech built for LashBabe, a Lagos lash and beauty studio, live in production since 2026." />
   <meta name="robots" content="noindex, follow" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;700;800&family=Manrope:wght@400;500;600;700&family=JetBrains+Mono:wght@500;600&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="/demo/style.css" />
 </head>
 <body>
 
   <div id="gate">
     <div class="gate-card">
-      <div class="gate-logo">E</div>
-      <h1 id="company-name">Everline</h1>
-      <p id="company-tagline">Demo workspace</p>
+      <div class="gate-logo">LashBabe</div>
+      <p>A real client build, walked through live</p>
       <div class="gate-note">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 8v5"/><circle cx="12" cy="16" r=".5" fill="currentColor"/></svg>
-        <span>This is a live demo with sample data. Nothing here is a real business, customer or transaction.</span>
+        <span>This is Adalin Tech's real booking and deposit-payment system, built for LashBabe, a Lagos lash studio, live in production. Service and pricing details here are representative, not pulled from real customer records. The payment step is simulated, no real charge.</span>
       </div>
-      <button class="btn" id="enter-demo">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="16" height="16"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-        Continue as guest
-      </button>
-      <p class="gate-foot">No sign-up. No real data. This is what Adalin Tech's Business Operations System looks like once it's built for you.</p>
+      <button class="btn-primary" id="enter-demo">Continue as guest</button>
+      <p class="gate-foot">No sign-up needed. This is what Adalin Tech builds.</p>
     </div>
   </div>
 
   <div id="app">
-    <aside class="sidebar">
-      <div class="brand">
-        <div class="mark">E</div>
-        <div class="name">Everline</div>
+    <div class="demo-banner">LIVE DEMO &middot; Real client product &middot; Simulated payment, no real charge</div>
+    <div class="topnav">
+      <div class="logo" id="nav-logo">LashBabe</div>
+      <div class="links">
+        <a href="#" id="nav-logo-2">Services</a>
+        <a href="#" class="muted">Academy</a>
+        <a href="#" class="muted">About</a>
+        <a href="#" class="muted">Policy</a>
+        <a href="/#quote" class="btn-primary" style="padding:9px 16px;font-size:.78rem;">Get this for your business</a>
+        <button class="cart-pill" id="cart-pill" style="display:none;">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14"><circle cx="9" cy="21" r="1"/><circle cx="19" cy="21" r="1"/><path d="M2.5 3h2l2.6 12.4a2 2 0 0 0 2 1.6h8.4a2 2 0 0 0 2-1.6L21 7H6"/></svg>
+          <span id="cart-count">0</span>
+        </button>
       </div>
-
-      <div class="nav-section-label">Overview</div>
-      <button class="nav-item" data-view="dashboard" data-nav="dashboard">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="9" rx="1.5"/><rect x="14" y="3" width="7" height="5" rx="1.5"/><rect x="14" y="12" width="7" height="9" rx="1.5"/><rect x="3" y="16" width="7" height="5" rx="1.5"/></svg>
-        Dashboard
-      </button>
-
-      <div class="nav-section-label">Operations</div>
-      <button class="nav-item" data-view="orders" data-nav="orders">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="4" width="14" height="17" rx="2"/><path d="M9 3h6a1 1 0 0 1 1 1v1H8V4a1 1 0 0 1 1-1Z"/><path d="M8 11h8M8 15h5"/></svg>
-        Orders &amp; Bookings
-      </button>
-      <button class="nav-item" data-view="customers" data-nav="customers">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="3.2"/><path d="M3.5 20a5.5 5.5 0 0 1 11 0"/><circle cx="17.2" cy="9" r="2.6"/><path d="M15.3 13.2A4.8 4.8 0 0 1 20.5 18"/></svg>
-        Customers
-      </button>
-      <button class="nav-item" data-view="inventory" data-nav="inventory">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3.5 7.5 12 3l8.5 4.5v9L12 21l-8.5-4.5Z"/><path d="M3.5 7.5 12 12l8.5-4.5M12 12v9"/></svg>
-        Inventory
-      </button>
-
-      <div class="nav-section-label">Business</div>
-      <button class="nav-item" data-view="staff" data-nav="staff">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="3" width="14" height="18" rx="2.5"/><circle cx="12" cy="10" r="2.6"/><path d="M8 17c.6-1.8 2-2.7 4-2.7s3.4.9 4 2.7"/></svg>
-        Staff &amp; Roles
-      </button>
-      <button class="nav-item" data-view="payments" data-nav="payments">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="6" width="18" height="13" rx="2.5"/><path d="M3 10h18"/><path d="M7 15h4"/></svg>
-        Payments
-      </button>
-      <button class="nav-item" data-view="reports" data-nav="reports">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20V10M11 20V4M18 20v-7"/></svg>
-        Reports
-      </button>
-
-      <div class="sidebar-foot">
-        Sample data, resets on reload.
-        <a href="/#quote">Get this for your business
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" width="12" height="12"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-        </a>
-      </div>
-    </aside>
-
-    <main class="main">
-      <div class="topbar">
-        <div>
-          <h2 id="view-title">Dashboard</h2>
-          <div class="sub" id="view-sub"></div>
-        </div>
-        <div class="topbar-right">
-          <button class="theme-toggle" id="theme-toggle" type="button" aria-label="Toggle dark mode" title="Toggle dark mode">
-            <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4.3"/><path d="M12 2.5v2.2M12 19.3v2.2M4.7 4.7l1.6 1.6M17.7 17.7l1.6 1.6M2.5 12h2.2M19.3 12h2.2M4.7 19.3l1.6-1.6M17.7 6.3l1.6-1.6"/></svg>
-            <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20 14.3A8.3 8.3 0 1 1 9.7 4a6.7 6.7 0 0 0 10.3 10.3Z"/></svg>
-          </button>
-          <div class="guest-chip"><span class="dot">G</span> Guest session</div>
-          <a href="/#quote" class="btn">Get a free quote</a>
-        </div>
-      </div>
-      <div class="content" id="content"></div>
-    </main>
+    </div>
+    <div class="wrap" id="content"></div>
   </div>
 
-  <div id="modal-backdrop">
-    <form class="modal" id="order-form">
-      <h3>New order</h3>
-      <label>Customer name<input name="customer" required placeholder="e.g. Grace Okon" /></label>
-      <label>What they ordered<input name="item" required placeholder="e.g. Standard booking" /></label>
-      <label>Total (₦)<input name="total" type="number" min="0" required placeholder="e.g. 85000" /></label>
-      <div class="modal-actions">
-        <button type="button" class="btn-ghost" id="order-cancel">Cancel</button>
-        <button type="submit" class="btn">Add order</button>
+  <div id="policy-backdrop" class="modal-backdrop">
+    <div class="modal">
+      <h3>Please Review Our Policy</h3>
+      <p style="font-size:.9rem;color:#555;line-height:1.6;">Deposits are non-refundable but transferable to a new date with at least 24 hours' notice. Arriving more than 15 minutes late may require rescheduling. This is representative policy text for the demo.</p>
+      <div class="btn-row">
+        <button class="btn-back" id="policy-cancel" type="button">Cancel</button>
+        <button class="nextButton" id="policy-agree" type="button">I Agree &amp; Deposit</button>
       </div>
-    </form>
+    </div>
   </div>
 
   <script type="module" src="/demo/app.js"></script>
