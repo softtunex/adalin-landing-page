@@ -1,26 +1,34 @@
+/* Light is the base palette: most visitors arrive with no dark-mode
+   preference set, so that's what they see until their system (or the
+   toggle below) says otherwise. */
 :root {
-  --bg: #0A0C0F;
-  --surface: #14171C;
-  --surface-2: #1A1E24;
-  --surface-hover: #20252C;
-  --border: #262B33;
-  --border-soft: #1E232A;
-  --ink: #F3F1EC;
-  --ink-dim: #9CA3AF;
-  --ink-faint: #666C78;
-  --accent: #FE6007;
-  --accent-bright: #FF7D30;
-  --accent-soft: rgba(254, 96, 7, 0.13);
-  --accent-glow: rgba(254, 96, 7, 0.28);
-  --good: #3DDC84;
-  --good-soft: rgba(61, 220, 132, 0.13);
-  --warn: #F5A524;
-  --warn-soft: rgba(245, 165, 36, 0.13);
-  --shadow-sm: 0 1px 2px rgba(0,0,0,.3);
-  --shadow-md: 0 8px 24px -8px rgba(0,0,0,.5);
-  --shadow-glow: 0 0 0 1px var(--border), 0 20px 50px -20px rgba(0,0,0,.6);
-  color-scheme: dark;
+  --bg: #FBF9F5;
+  --surface: #FFFFFF;
+  --surface-2: #F3F0EA;
+  --surface-hover: #ECE7DD;
+  --border: #E7E2D9;
+  --border-soft: #EDE9E0;
+  --ink: #18181B;
+  --ink-dim: #65615A;
+  --ink-faint: #99948B;
+  --accent: #D9520A;
+  --accent-bright: #FE6007;
+  --accent-soft: rgba(217, 82, 10, 0.09);
+  --accent-glow: rgba(217, 82, 10, 0.22);
+  --good: #1F9D55;
+  --good-soft: rgba(31, 157, 85, 0.1);
+  --warn: #B45309;
+  --warn-soft: rgba(180, 83, 9, 0.1);
+  --shadow-sm: 0 1px 2px rgba(20,16,8,.05);
+  --shadow-md: 0 8px 24px -8px rgba(20,16,8,.12);
+  --shadow-glow: 0 0 0 1px var(--border), 0 20px 50px -20px rgba(20,16,8,.18);
+  color-scheme: light;
 }
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) { --bg: #0A0C0F; --surface: #14171C; --surface-2: #1A1E24; --surface-hover: #20252C; --border: #262B33; --border-soft: #1E232A; --ink: #F3F1EC; --ink-dim: #9CA3AF; --ink-faint: #666C78; --accent: #FE6007; --accent-bright: #FF7D30; --accent-soft: rgba(254,96,7,.13); --accent-glow: rgba(254,96,7,.28); --good: #3DDC84; --good-soft: rgba(61,220,132,.13); --warn: #F5A524; --warn-soft: rgba(245,165,36,.13); --shadow-sm: 0 1px 2px rgba(0,0,0,.3); --shadow-md: 0 8px 24px -8px rgba(0,0,0,.5); --shadow-glow: 0 0 0 1px var(--border), 0 20px 50px -20px rgba(0,0,0,.6); color-scheme: dark; }
+}
+:root[data-theme="dark"] { --bg: #0A0C0F; --surface: #14171C; --surface-2: #1A1E24; --surface-hover: #20252C; --border: #262B33; --border-soft: #1E232A; --ink: #F3F1EC; --ink-dim: #9CA3AF; --ink-faint: #666C78; --accent: #FE6007; --accent-bright: #FF7D30; --accent-soft: rgba(254,96,7,.13); --accent-glow: rgba(254,96,7,.28); --good: #3DDC84; --good-soft: rgba(61,220,132,.13); --warn: #F5A524; --warn-soft: rgba(245,165,36,.13); --shadow-sm: 0 1px 2px rgba(0,0,0,.3); --shadow-md: 0 8px 24px -8px rgba(0,0,0,.5); --shadow-glow: 0 0 0 1px var(--border), 0 20px 50px -20px rgba(0,0,0,.6); color-scheme: dark; }
 
 * { box-sizing: border-box; }
 html, body { height: 100%; }
@@ -135,6 +143,21 @@ svg { display: block; }
 }
 .topbar h2 { font-size: 19px; font-weight: 800; }
 .topbar .sub { color: var(--ink-dim); font-size: 12.5px; margin-top: 3px; }
+.theme-toggle {
+  width: 36px; height: 36px; border-radius: 9px; border: 1px solid var(--border);
+  background: var(--surface-2); color: var(--ink-dim); display: grid; place-items: center;
+  transition: background .12s ease, color .12s ease;
+}
+.theme-toggle:hover { background: var(--surface-hover); color: var(--ink); }
+.theme-toggle svg { width: 17px; height: 17px; }
+.theme-toggle .icon-moon { display: none; }
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .theme-toggle .icon-sun { display: none; }
+  :root:not([data-theme="light"]) .theme-toggle .icon-moon { display: block; }
+}
+:root[data-theme="dark"] .theme-toggle .icon-sun { display: none; }
+:root[data-theme="dark"] .theme-toggle .icon-moon { display: block; }
+
 .guest-chip {
   display: inline-flex; align-items: center; gap: 7px; font-size: 12px; color: var(--ink-dim);
   background: var(--surface-2); border: 1px solid var(--border); border-radius: 100px; padding: 5px 12px 5px 6px;

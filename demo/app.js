@@ -70,7 +70,7 @@ function renderTrendChart() {
       </defs>
       <path d="${area}" fill="url(#trendFill)" />
       <path d="${line}" fill="none" stroke="#FE6007" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" />
-      <circle cx="${last[0]}" cy="${last[1]}" r="4" fill="#FE6007" stroke="#0A0C0F" stroke-width="2" />
+      <circle cx="${last[0]}" cy="${last[1]}" r="4" fill="#FE6007" style="stroke:var(--surface)" stroke-width="2" />
     </svg>
   `;
 }
@@ -238,6 +238,21 @@ function initModal() {
   });
 }
 
+function initTheme() {
+  const root = document.documentElement;
+  let saved = null;
+  try { saved = localStorage.getItem('everline-theme'); } catch { /* private window etc, fall through to system */ }
+  if (saved === 'light' || saved === 'dark') root.setAttribute('data-theme', saved);
+
+  $('#theme-toggle').addEventListener('click', () => {
+    const systemDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    const current = root.getAttribute('data-theme') || (systemDark ? 'dark' : 'light');
+    const next = current === 'dark' ? 'light' : 'dark';
+    root.setAttribute('data-theme', next);
+    try { localStorage.setItem('everline-theme', next); } catch { /* ignore, toggle still works for this view */ }
+  });
+}
+
 function initGate() {
   $('#company-name').textContent = company.name;
   $('#company-tagline').textContent = company.tagline;
@@ -248,5 +263,6 @@ function initGate() {
   });
 }
 
+initTheme();
 initGate();
 initModal();
