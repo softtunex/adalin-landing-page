@@ -75,6 +75,8 @@
   .brand img.icon{height:24px; width:auto; transition:transform .3s var(--ease);}
   .brand img.word{height:15px; width:auto;}
   a.brand:hover img.icon{transform:rotate(-8deg) scale(1.08);}
+  .footer-logo-full{height:44px; width:auto;}
+  @media (max-width:520px){ .footer-logo-full{height:36px;} }
 
   /* ---- nav ---- */
   .nav-outer{position:fixed; top:16px; left:0; right:0; z-index:60; display:flex; justify-content:center; padding:0 16px;}
