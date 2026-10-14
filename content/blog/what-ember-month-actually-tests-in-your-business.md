@@ -4,6 +4,8 @@ slug: what-ember-month-actually-tests-in-your-business
 date: 2026-10-14
 description: Ember month gets blamed for bad roads and bad luck every year. The part nobody talks about is that it's also the stretch that exposes which businesses are actually keeping track of their own orders.
 tags: small business, seasonal, operations
+image: /assets/image/blog/lagos-christmas-order-rush.png
+imageAlt: A shopkeeper in Lagos wraps a gift at a busy counter during the Christmas rush, with a phone showing stacked order notifications and a thick stack of handwritten order slips beside it
 ---
 
 Every September, the warnings start again. Drive carefully, it's ember month. Watch your pocket, it's ember month. Something about September through December makes Nigerians brace for the worst, four months named for how they end rather than what happens in them, grouped together because "-ber" is the only thing September, October, November and December have in common on paper.
