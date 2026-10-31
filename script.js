@@ -3,6 +3,7 @@
   const progress = document.getElementById('scrollProgress');
   function updateScroll(){
     nav.classList.toggle('scrolled', window.scrollY > 12);
+    if (!progress) return;
     const docHeight = document.documentElement.scrollHeight - window.innerHeight;
     const pct = docHeight > 0 ? (window.scrollY / docHeight) * 100 : 0;
     progress.style.width = pct + '%';
